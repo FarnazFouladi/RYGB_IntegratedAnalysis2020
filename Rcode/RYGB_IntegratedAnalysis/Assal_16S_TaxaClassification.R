@@ -51,5 +51,6 @@ colnames(dada1)<-taxanomy
 dada1_meta<-cbind(dada1,meta1)
 write.table(dada1_meta,paste0(path,"SV_norm_table.txt"),sep="\t",row.names = TRUE,quote = FALSE)
 
+message("All done");
 
 
