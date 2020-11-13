@@ -1,0 +1,48 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Georgia-Bold;\f1\fnil\fcharset0 Consolas;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww19800\viewh11400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs48 \cf0 Steps to analyze and reproduce figures in manuscript using BioLockJ\
+--Local version\
+
+\f1\b0\fs24 \
+
+\f0\b\fs36 1. Ensure that R and BioLockJ are on local system\
+\
+2. Download RYGB_IntegratedAnalysis directory\
+
+\f1\b0\fs24 git clone https://github.com/FarnazFouladi/RYGB_IntegratedAnalysis 2020.git\
+\
+
+\f0\b\fs36 3. Make sure all required R packages are installed\
+
+\f1\b0\fs24 nlme\
+stringr\
+ggplot2\
+gridExtra\
+ggsignif\
+ggrepel\
+vegan\
+tidyverse\
+cowplot\
+pROC\
+yaml\
+ComplexHeatmap\
+reshape2\
+pdp\
+SIAMCAT\
+\
+
+\f0\b\fs36 4. Move to BioLockJ directory\
+
+\f1\b0\fs24 cd path/to/RYGB_IntegratedAnalysis/2020/BioLockJ\
+\
+
+\f0\b\fs36 5. Run BioLockJ pipeline\
+
+\f1\b0\fs24 biolockj RYGB_IntegreatedAnalysis.properties\
+\
+}
