@@ -1,0 +1,182 @@
+---
+title: "BioLockJ Reproduced Figures"
+author: "Alicia Sorgen"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R Markdown
+
+This R Markdown document produces the output for the manuscript figures and those reproduced using the BioLockJ pipeline.
+
+```{r include = FALSE}
+library(stringr)
+pipeRoot = dirname(dirname(getwd()))
+moduleDir = dirname(getwd())
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_PCO.png")
+output <- paste0(moduleDir,"/resources/Genus_PCO.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_mainFigure1cd.png")
+output <- paste0(moduleDir,"/resources/Genus_mainFigure1cd.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_coefficientsFromScatterPlots.png")
+output <- paste0(moduleDir,"/resources/Genus_coefficientsFromScatterPlots.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_BoxPlotCorrelations.png")
+output <- paste0(moduleDir,"/resources/Genus_BoxPlotCorrelations.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Seq_scatterPlots.png")
+output <- paste0(moduleDir,"/resources/Seq_scatterPlots.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/SV_BS_Assal.png")
+output <- paste0(moduleDir,"/resources/SV_BS_Assal.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Diversity.png")
+output <- paste0(moduleDir,"/resources/Diversity.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Seq_scatterPlots.png")
+output <- paste0(moduleDir,"/resources/Seq_scatterPlots.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_HeatmapAndCluster.png")
+output <- paste0(moduleDir,"/resources/Genus_HeatmapAndCluster.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Species_scatterPlots_MetagenomicsBSAndPalleja.png")
+output <- paste0(moduleDir,"/resources/Species_scatterPlots_MetagenomicsBSAndPalleja.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Species_mainFigure3ab.png")
+output <- paste0(moduleDir,"/resources/Species_mainFigure3ab.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
+output <- paste0(moduleDir,"/resources/Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Pathway_scatterPlots_MetagenomicsBSAndPalleja.png")
+output <- paste0(moduleDir,"/resources/Pathway_scatterPlots_MetagenomicsBSAndPalleja.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Pathway_mainFigure3de.png")
+output <- paste0(moduleDir,"/resources/Pathway_mainFigure3de.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
+output <- paste0(moduleDir,"/resources/Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/performance_heatmap_randomForest.png")
+output <- paste0(moduleDir,"/resources/performance_heatmap_randomForest.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/loso_performance_randomForest.png")
+output <- paste0(moduleDir,"/resources/loso_performance_randomForest.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/performance_heatmap_lasso.png")
+output <- paste0(moduleDir,"/resources/performance_heatmap_lasso.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/loso_performance_lasso.png")
+output <- paste0(moduleDir,"/resources/loso_performance_lasso.png")
+file.copy(from = input, to = output)
+
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/OportunisticPathogens.png")
+output <- paste0(moduleDir,"/resources/OportunisticPathogens.png")
+file.copy(from = input, to = output)
+```
+
+## Original Figure 1
+
+Main Figure 1
+<img src="MainFigure1.png" alt="a pre-existing plot or image">
+
+BioLockJ Reproduced Figures
+
+Figure 1A and 1B
+<img src="Genus_PCO.png" alt="a pre-existing plot or image">
+
+Figure 1C and 1D
+<img src="Genus_mainFigure1cd.png" alt="a pre-existing plot or image">
+
+Figure 1E
+<img src="Genus_coefficientsFromScatterPlots.png" alt="a pre-existing plot or image">
+
+Figure 1F
+<img src="Genus_BoxPlotCorrelations.png" alt="a pre-existing plot or image">
+
+
+
+## Original Figure 2
+
+Main Figure 1
+<img src="MainFigure2.png" alt="a pre-existing plot or image">
+
+BioLockJ Reproduced Figures
+
+Figure 2
+<img src="Genus_HeatmapAndCluster.png" alt="a pre-existing plot or image">
+
+
+
+
+## Original Figure 3
+
+Main Figure 3
+<img src="MainFigure3.png" alt="a pre-existing plot or image">
+
+BioLockJ Reproduced Figures
+
+Figure 3A and 3B
+<img src="Species_mainFigure3ab.png" alt="a pre-existing plot or image">
+
+Figure 3C
+<img src="Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png" alt="a pre-existing plot or image">
+
+Figure 3D and 3E
+<img src="Pathway_mainFigure3de.png" alt="a pre-existing plot or image">
+
+Figure 3F
+<img src="Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png" alt="a pre-existing plot or image">
+
+
+
+
+## Original Figure 4
+
+Main Figure 4
+<img src="MainFigure4.png" alt="a pre-existing plot or image">
+
+BioLockJ Reproduced Figures
+
+Figure 4A
+<img src="performance_heatmap_lasso.png" alt="a pre-existing plot or image">
+
+Figure 4B
+<img src="loso_performance_lasso.png" alt="a pre-existing plot or image">
+
+
+
+
+## Original Figure 5
+
+Main Figure 5
+<img src="MainFigure5.png" alt="a pre-existing plot or image">
+
+BioLockJ Reproduced Figures
+
+Figure 5
+<img src="OportunisticPathogens.png" alt="a pre-existing plot or image">
+
