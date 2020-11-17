@@ -17,21 +17,21 @@ library(stringr)
 pipeRoot = dirname(dirname(getwd()))
 moduleDir = dirname(getwd())
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_PCO.png")
-output <- paste0(moduleDir,"/resources/Genus_PCO.png")
-file.copy(from = input, to = output)
+# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_PCO.png")
+# output <- paste0(moduleDir,"/resources/Genus_PCO.png")
+# file.copy(from = input, to = output)
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_mainFigure1cd.png")
-output <- paste0(moduleDir,"/resources/Genus_mainFigure1cd.png")
-file.copy(from = input, to = output)
+# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_mainFigure1cd.png")
+# output <- paste0(moduleDir,"/resources/Genus_mainFigure1cd.png")
+# file.copy(from = input, to = output)
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_coefficientsFromScatterPlots.png")
-output <- paste0(moduleDir,"/resources/Genus_coefficientsFromScatterPlots.png")
-file.copy(from = input, to = output)
+# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_coefficientsFromScatterPlots.png")
+# output <- paste0(moduleDir,"/resources/Genus_coefficientsFromScatterPlots.png")
+# file.copy(from = input, to = output)
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_BoxPlotCorrelations.png")
-output <- paste0(moduleDir,"/resources/Genus_BoxPlotCorrelations.png")
-file.copy(from = input, to = output)
+# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_BoxPlotCorrelations.png")
+# output <- paste0(moduleDir,"/resources/Genus_BoxPlotCorrelations.png")
+# file.copy(from = input, to = output)
 
 input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Seq_scatterPlots.png")
 output <- paste0(moduleDir,"/resources/Seq_scatterPlots.png")
@@ -97,27 +97,6 @@ input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Oport
 output <- paste0(moduleDir,"/resources/OportunisticPathogens.png")
 file.copy(from = input, to = output)
 ```
-
-## Original Figure 1
-
-Main Figure 1
-<img src="MainFigure1.png" alt="a pre-existing plot or image">
-
-BioLockJ Reproduced Figures
-
-Figure 1A and 1B
-<img src="Genus_PCO.png" alt="a pre-existing plot or image">
-
-Figure 1C and 1D
-<img src="Genus_mainFigure1cd.png" alt="a pre-existing plot or image">
-
-Figure 1E
-<img src="Genus_coefficientsFromScatterPlots.png" alt="a pre-existing plot or image">
-
-Figure 1F
-<img src="Genus_BoxPlotCorrelations.png" alt="a pre-existing plot or image">
-
-
 
 ## Original Figure 2
 

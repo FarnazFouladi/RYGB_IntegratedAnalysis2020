@@ -179,7 +179,7 @@ dev.off()
 ### pick out the favs that were used in the main figure
 fig1Pics <- file.path(outDir, paste0(taxaLevel,"_mainFigure1cd.pdf"))
 message("Saving specific plots to individual file to compare to figure 1, see file: ", fig1Pics)
-pdf(fig1Pics, width = 3, height = 7)
+pdf(fig1Pics, width = 5, height = 9)
 theme_set(theme_classic(base_size = 9))
 grid.arrange(plotList[[favs[1]]], plotList[[favs[2]]],ncol=1,nrow=2)
 dev.off()
