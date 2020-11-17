@@ -11,25 +11,32 @@ library(vegan)
 library(stringr)
 set.seed(123)
 
-pipeRoot = dirname(dirname(getwd()))
+pipeRoot <- dirname(dirname(getwd()))
 moduleDir <- dirname(getwd())
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CombineCountTableslog10"),"/output/")
-output = file.path(dirname(getwd()),"output/")
-# output<-"./output/"
-taxa<-"Genus"
-colors=c("red","blue","darkgreen","darkorange2","purple","hotpink","black","firebrick")
-# source("./Rcode/RYGB_IntegratedAnalysis/functions.R")
-funcScript <- paste0(moduleDir,"/resources/functions.R")
+outputDir <- file.path(moduleDir,"output/")
+inputModule <- dir(pipeRoot, "CombineCountTableslog10", full.names = TRUE)
+input <- file.path(inputModule,"output")
+message("Taking input files from folder: ", input)
+
+taxaLevel <- "Genus"
+colors <- c("red","blue","darkgreen","darkorange2","purple","hotpink","black","firebrick")
+funcScript <- file.path(file.path(moduleDir, "resources"),"functions.R")
+message("Using resource file: ", funcScript)
 source(funcScript)
 
+inFile <- file.path(input, paste0(taxaLevel, "_countTable_merged_log10.txt"))
+message("Reading input table: ", inFile)
+myT <- read.table(inFile,sep="\t",header = TRUE)
 
-# myT<-read.table(paste0(output,taxa,"_countTable_merged_log10.txt"),sep="\t",header = TRUE)
-myT<-read.table(paste0(input,taxa,"_countTable_merged_log10.txt"),sep="\t",header = TRUE)
-# meta<-read.table(paste0(output,"metaData_merged.txt"),sep="\t",header = TRUE)
-meta<-read.table(paste0(input,"metaData_merged.txt"),sep="\t",header = TRUE)
-meta$TimeEachStudy<-paste0(meta$Study,"_",meta$time)
+metaFile <- file.path(input,"metaData_merged.txt")
+message("Reading metadata from file: ", metaFile)
+meta <- read.table(metaFile,sep="\t",header = TRUE)
 
-pdf(paste0(output,taxa,"_PCO.pdf"),width = 5,height = 10)
+meta$TimeEachStudy <- paste0(meta$Study,"_",meta$time)
+
+outFile <- file.path(outputDir, paste0(taxaLevel,"_PCO.pdf"))
+message("Saving output to file: ", outFile)
+pdf(outFile, width = 5,height = 10)
 par(mfrow=c(2,1))
 
 getPCO(myT,meta,"Study",names=levels(factor(meta$Study)),colors)
@@ -39,7 +46,9 @@ dev.off()
 
 #PERMANOVA 
 permanova <- adonis(myT~factor(meta$time)*factor(meta$Study))
-capture.output(permanova, file = paste0(output, taxa, "_permanovaResults.txt"))
+permaOut <- file.path(outputDir, paste0(taxaLevel, "_permanovaResults.txt"))
+message("Saving permanova summary to file: ", permaOut)
+capture.output(permanova, file = permaOut)
 # "Call:
 # adonis(formula = myT ~ factor(meta$time) * factor(meta$Study)) 
 # 
@@ -63,10 +72,8 @@ capture.output(permanova, file = paste0(output, taxa, "_permanovaResults.txt"))
 # ---
 # Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1"
 
+message("")
+message("All done!")
+message("")
 
-
-
-
-
-
-
+sessionInfo()
