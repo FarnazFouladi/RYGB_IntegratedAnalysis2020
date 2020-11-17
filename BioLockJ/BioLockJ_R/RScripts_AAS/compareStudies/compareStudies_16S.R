@@ -13,31 +13,48 @@ library(ggsignif)
 library(ggrepel)
 library(stringr)
 
-pipeRoot = dirname(dirname(getwd()))
+pipeRoot <- dirname(dirname(getwd()))
 moduleDir <- dirname(getwd())
-dir.create(paste0(dirname(getwd()),"/input/"), showWarnings = FALSE)
-input = file.path(dirname(getwd()),"input/")
+outDir <- file.path(moduleDir, "output")
+inputDir = file.path(moduleDir,"input")
+dir.create(inputDir, showWarnings = FALSE)
+message("Input tables will collected into an input folder: ", inputDir)
 
-# output<-"./output/"
-taxa<-"Genus"
-funcScript <- paste0(moduleDir,"/resources/functions.R")
+taxaLevel <- "Genus"
+funcScript <- file.path(file.path(moduleDir, "resources"),"functions.R")
 source(funcScript)
-# source("./Rcode/RYGB_IntegratedAnalysis/functions.R")
 
-AfsharInput <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "AfsharDADA"),"/output/MixedLinearModels/",taxa,"_Afshar_MixedLinearModelResults.txt")
-file.copy(from = AfsharInput, to = input)
+#AfsharInput <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "AfsharDADA"),"/output/MixedLinearModels/",)
+fileNameAf <- paste0(taxaLevel,"_Afshar_MixedLinearModelResults.txt")
+moduleAf <- file.path(dir(pipeRoot, "AfsharDADA", full.names = TRUE))
+AfsharInput <- file.path(file.path(file.path(moduleAf, "output"),"MixedLinearModels"),fileNameAf)
+message("Grabbing input file: ", fileNameAf)
+message("from module: ", moduleAf)
+file.copy(from = AfsharInput, to = inputDir)
 
-AssalInput <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "AssalDADA"),"/output/MixedLinearModels/",taxa,"_Assal_MixedLinearModelResults.txt")
-file.copy(from = AssalInput, to = input)
+#AssalInput <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "AssalDADA"),"/output/MixedLinearModels/",taxaLevel,"_Assal_MixedLinearModelResults.txt")
+fileNameAs <- paste0(taxaLevel,"_Assal_MixedLinearModelResults.txt")
+moduleAs <- file.path(dir(pipeRoot, "AssalDADA", full.names = TRUE))
+AssalInput <- file.path(file.path(file.path(moduleAs, "output"),"MixedLinearModels"),fileNameAs)
+message("Grabbing input file: ", fileNameAs)
+message("from module: ", moduleAs)
+file.copy(from = AssalInput, to = inputDir)
 
-BSInput <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "BSDADA"),"/output/MixedLinearModels/",taxa,"_BS_MixedLinearModelResults.txt")
-file.copy(from = BSInput, to = input)
+#BSInput <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "BSDADA"),"/output/MixedLinearModels/",taxaLevel,"_BS_MixedLinearModelResults.txt")
+fileNameBs <- paste0(taxaLevel,"_BS_MixedLinearModelResults.txt")
+moduleBs <- file.path(dir(pipeRoot, "BSDADA", full.names = TRUE))
+BsInput <- file.path(file.path(file.path(moduleBs, "output"),"MixedLinearModels"),fileNameBs)
+message("Grabbing input file: ", fileNameBs)
+message("from module: ", moduleBs)
+file.copy(from = BsInput, to = inputDir)
 
-IlhanInput <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "IlhanDADA"),"/output/MixedLinearModels/",taxa,"_Ilhan_MixedLinearModelResults.txt")
-file.copy(from = IlhanInput, to = input)
-
-output = file.path(dirname(getwd()),"output/")
-
+#IlhanInput <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "IlhanDADA"),"/output/MixedLinearModels/",taxaLevel,"_Ilhan_MixedLinearModelResults.txt")
+fileNameIl <- paste0(taxaLevel,"_Ilhan_MixedLinearModelResults.txt")
+moduleIl <- file.path(dir(pipeRoot, "IlhanDADA", full.names = TRUE))
+IlhanInput <- file.path(file.path(file.path(moduleIl, "output"),"MixedLinearModels"),fileNameIl)
+message("Grabbing input file: ", fileNameIl)
+message("from module: ", moduleIl)
+file.copy(from = IlhanInput, to = inputDir)
 
 #BS 1M 6M
 #Assal 3M 1Y 2Y
@@ -65,9 +82,7 @@ for (s in 1:length(studies)){
     
     for (s1 in otherStudies){
       
-      # path<-paste0(output,"MixedLinearModels/")
-      path<-input
-      df<-compareStudies(path,taxa,strsplit(studies[s],"-")[[1]][1],strsplit(studies[s1],"-")[[1]][1],strsplit(studies[s],"-")[[1]][2],strsplit(studies[s1],"-")[[1]][2])
+      df<-compareStudies(inputDir,taxaLevel,strsplit(studies[s],"-")[[1]][1],strsplit(studies[s1],"-")[[1]][1],strsplit(studies[s],"-")[[1]][2],strsplit(studies[s1],"-")[[1]][2])
       
       r[index]<-correlationBetweenStudies(df)[[1]]
       pval[index]<-correlationBetweenStudies(df)[[2]]
@@ -88,7 +103,7 @@ for (s in 1:length(studies)){
     for (s1 in otherStudies){
       
       count<-count+1
-      df<-compareStudies(path,taxa,strsplit(studies[s],"-")[[1]][1],strsplit(studies[s1],"-")[[1]][1],strsplit(studies[s],"-")[[1]][2],strsplit(studies[s1],"-")[[1]][2])
+      df<-compareStudies(inputDir,taxaLevel,strsplit(studies[s],"-")[[1]][1],strsplit(studies[s1],"-")[[1]][1],strsplit(studies[s],"-")[[1]][2],strsplit(studies[s1],"-")[[1]][2])
       xlab=paste0(studyNames[s]," vs. baseline")
       ylab=paste0(studyNames[s1]," vs. baseline")
       plot<-plotPairwiseStudies(df,xlab,ylab,r[count],pval[count])
@@ -119,7 +134,9 @@ for (s in 1:length(studies)){
 }
 
 df<-data.frame(studyPairs,compariosn,compariosnTime,pval,r)
-write.table(df, paste0(output,taxa,"_PairwiseComparison.txt"),sep="\t",row.names = FALSE)
+pairOutFile <- file.path(outDir, paste0(taxaLevel,"_PairwiseComparison.txt"))
+message("Saving table of pairwise comparisons: ", pairOutFile)
+write.table(df, pairOutFile, sep="\t", row.names = FALSE)
 
 #Wilcoxon test for comparing coefficients
 p1<-wilcox.test(df$r[df$compariosn=="Different study" & df$compariosnTime=="Different timepoint"],
@@ -135,8 +152,10 @@ p4<-wilcox.test(df$r[df$compariosn=="Different study"],
                 df$r[df$compariosn=="Same study" & df$compariosnTime=="Different timepoint"])
 
 #Adjusting p-values from wilcoxon test
+outFileWilRes <- file.path(outDir, paste0(taxaLevel, "_wilcoxResults.txt"))
+message("Creating output file: ", outFileWilRes)
 adjusted<-p.adjust(c(p1$p.value,p2$p.value,p3$p.value,p4$p.value),method = "BH")
-capture.output(p1, p2, p3, p4, adjusted, file = paste0(output,taxa, "_wilcoxResults.txt"))
+capture.output(p1, p2, p3, p4, adjusted, file = outFileWilRes)
 
 #No significant difference between different time points
 plot1<-ggplot(data=df,aes(x=compariosn,y=r))+
@@ -145,7 +164,9 @@ plot1<-ggplot(data=df,aes(x=compariosn,y=r))+
   geom_signif(y_position = c(0.75,0.8),xmin = c(0.9,1.1),xmax=c(2,2),annotations = c("*","*"),tip_length=0.03,vjust = 0.5,textsize =4)
 
 
-pdf(paste0(output,taxa,"_scatterPlots.pdf"),width = 10,height = 10)
+scatPlotOut <- file.path(outDir, paste0(taxaLevel,"_scatterPlots.pdf"))
+message("Saving scatter plots to file: ", scatPlotOut)
+pdf(scatPlotOut, width = 10, height = 10)
 theme_set(theme_classic(base_size = 9))
 for (i in c(1,10,19)){
   grid.arrange(plotList[[i]],plotList[[i+1]],plotList[[i+2]],
@@ -156,12 +177,16 @@ grid.arrange(plotList[[28]],ncol=3,nrow=3)
 dev.off()
 
 ### pick out the favs that were used in the main figure
-pdf(paste0(output,taxa,"_mainFigure1cd.pdf"),width = 3,height = 7)
+fig1Pics <- file.path(outDir, paste0(taxaLevel,"_mainFigure1cd.pdf"))
+message("Saving specific plots to individual file to compare to figure 1, see file: ", fig1Pics)
+pdf(fig1Pics, width = 3, height = 7)
 theme_set(theme_classic(base_size = 9))
 grid.arrange(plotList[[favs[1]]], plotList[[favs[2]]],ncol=1,nrow=2)
 dev.off()
 
-pdf(paste0(output,taxa,"_coefficientsFromScatterPlots.pdf"),width = 5,height = 5)
+coefOut <- file.path(outDir, paste0(taxaLevel,"_coefficientsFromScatterPlots.pdf"))
+message("Saving coefficients from scatter plots: ", coefOut)
+pdf(coefOut, width = 5,height = 5)
 theme_set(theme_classic(base_size = 14))
 print(plot1)
 dev.off()
@@ -202,7 +227,14 @@ df2<-data.frame(r=c(r.BS,r.Assal,r.Ilhan,r.Afshar),study1,study2)
 theme_set(theme_gray(base_size = 14))
 plot<-ggplot(data=df2,aes(x=factor(study2),y=r))+geom_boxplot()+geom_jitter(position = position_jitter(width=0.1))+facet_wrap(vars(study1))+
   labs(x="Studies",y="Spearman Coefficient")
-pdf(paste0(output,taxa,"_BoxPlotCorrelations.pdf"),width = 5,height = 5)
+boxPlotFile <- file.path(outDir, paste0(taxaLevel,"_BoxPlotCorrelations.pdf"))
+message("Saving box plots to file: ", boxPlotFile)
+pdf(boxPlotFile, width = 5,height = 5)
 print(plot)
 dev.off()
 
+message("")
+message("All done!")
+message("")
+
+sessionInfo()
