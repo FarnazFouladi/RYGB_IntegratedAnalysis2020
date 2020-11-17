@@ -4,6 +4,9 @@
 
 #BioLockJ configuration: Ali Sorgen
 #Date: 10-06-2020
+rm(list=ls())
+
+sessionInfo()
 
 pipeRoot <- dirname(dirname(getwd()))
 moduleDir <- dirname(getwd())
