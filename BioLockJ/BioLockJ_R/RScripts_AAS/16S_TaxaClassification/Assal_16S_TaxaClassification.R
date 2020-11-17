@@ -19,9 +19,9 @@ taxa<-read.table(paste0(path,"DADA2/taxForwardReads.txt"),sep="\t",header=TRUE)
 meta<-read.table(metaData,sep=",",header=TRUE,row.names = 1)
 
 #Modify Escherichia name
-taxa$Genus<-sapply(taxa$Genus,function(x){
-  if (x=="Esherichica/Shigella" & !is.na(x)) return("Escherichia/Shigella")
-  else return(x)})
+taxa$Genus = as.factor(taxa$Genus)
+typoIndex = which(levels(taxa$Genus)=="Esherichica/Shigella")
+levels(taxa$Genus)[typoIndex]="Escherichia/Shigella"
 
 dada<-dada[match(rownames(meta),rownames(dada)),]
 
