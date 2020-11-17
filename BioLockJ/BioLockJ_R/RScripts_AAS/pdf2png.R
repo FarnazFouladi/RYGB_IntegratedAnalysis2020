@@ -11,33 +11,6 @@ library(pdftools)
 pipeRoot = dirname(dirname(getwd()))
 output = file.path(dirname(getwd()),"output/")
 
-#### PCO ####
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PCO"),"/output/")
-
-bitmap <- pdf_render_page(paste0(input,"Genus_PCO.pdf"), dpi = 100)
-# bitmap <- pdf_convert(paste0(input,"Genus_PCO.pdf"),
-#                      format = "png",
-#                      dpi = 100)
-png::writePNG(bitmap, paste0(output,"Genus_PCO.png"))
-
-
-
-
-#### CompareStudies16S ####
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudies16S"),"/output/")
-
-bitmap <- pdf_render_page(paste0(input,"Genus_scatterPlots.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"Genus_scatterPlots.png"))
-
-bitmap <- pdf_render_page(paste0(input,"Genus_coefficientsFromScatterPlots.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"Genus_coefficientsFromScatterPlots.png"))
-
-bitmap <- pdf_render_page(paste0(input,"Genus_BoxPlotCorrelations.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"Genus_BoxPlotCorrelations.png"))
-
-bitmap <- pdf_render_page(paste0(input,"Genus_mainFigure1cd.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"Genus_mainFigure1cd.png"))
-
 
 
 #### CompareStudiesSV ####

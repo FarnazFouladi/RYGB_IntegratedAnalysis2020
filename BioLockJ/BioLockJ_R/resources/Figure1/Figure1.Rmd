@@ -1,0 +1,102 @@
+---
+title: "Figure 1"
+author: "Ivory Blakley"
+output:
+  html_document:
+    toc: true
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is a side-by-side comparison between figures as they appear in the published work, and the corresponding figures that were re-generated on ` `r date()` `.
+
+## Original Entire Figure 1
+
+
+```{r}
+fig1 = file.path(getwd(), "MainFigure1.png")
+origPanels = getwd()
+```
+
+```{r echo=FALSE}
+include_graphics(fig1)
+```
+
+Now we'll compare individual panels to the output we just generated in this pipeline.  The old and new may not be bit-for-bit identical, there may some random seed that is used in a training step, or a difference in the font libraries available then vs now, graphics paramaters like resolution or image size may be different on different machines, the publication may have some manually curated labels that the script-generated image does not.  There many acceptable reasons why a reproduced figure may not be identical to the original; but we expect that the core conclusion from the original will hold for new.  
+
+```{r}
+pipeRoot <- dirname(dirname(getwd()))
+```
+
+The "new" images are taken from modules under this folder:               
+`r pipeRoot`
+
+## Side-by-side by panel
+
+### Panel A and B
+
+```{r}
+
+```
+
+```{r echo=FALSE, out.width=400, out.height=700}
+left = file.path(origPanels, "Genus_PCO.png")
+
+
+PCOmodule = dir(pipeRoot, pattern="PCO", full.names=TRUE)
+pcoOutDir = file.path(PCOmodule, "output")
+right = file.path(pcoOutDir, "Genus_PCO.png")
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right images is the pipeline result file:            
+``r right``
+
+
+### Panel C and D
+
+```{r out.width=400, out.height=700}
+left = file.path(origPanels, "Genus_scatterPlotsPaper.png")
+
+comp16Dir = file.path(dir(pipeRoot, pattern="CompareStudies16S", full.names=TRUE), "output")
+right = file.path(comp16Dir, "Genus_mainFigure1cd.png")
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right images is the pipeline result file:            
+``r right``
+
+### Panel E
+
+```{r out.width=400, out.height=400}
+left = file.path(origPanels, "Genus_coefficientsFromScatterPlots.png")
+right = file.path(comp16Dir, "Genus_coefficientsFromScatterPlots.png")
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right images is the pipeline result file:            
+``r right``
+
+### Panel F
+
+```{r out.width=400, out.height=400}
+left = file.path(origPanels, "Genus_BoxPlotCorrelations.png")
+right = file.path(comp16Dir, "Genus_BoxPlotCorrelations.png")
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right images is the pipeline result file:            
+``r right``
+
+```{r}
+sessionInfo()
+```
+

@@ -34,9 +34,9 @@ meta <- read.table(metaFile,sep="\t",header = TRUE)
 
 meta$TimeEachStudy <- paste0(meta$Study,"_",meta$time)
 
-outFile <- file.path(outputDir, paste0(taxaLevel,"_PCO.pdf"))
+outFile <- file.path(outputDir, paste0(taxaLevel,"_PCO.png"))
 message("Saving output to file: ", outFile)
-pdf(outFile, width = 5,height = 10)
+png(outFile, width = 5,height = 10, units="in", res=100)
 par(mfrow=c(2,1))
 
 getPCO(myT,meta,"Study",names=levels(factor(meta$Study)),colors)

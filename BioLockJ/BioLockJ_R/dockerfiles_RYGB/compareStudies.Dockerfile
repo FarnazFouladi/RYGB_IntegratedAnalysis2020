@@ -21,11 +21,14 @@ RUN Rscript -e "install.packages('gridExtra', dependencies=c('Depends', 'Imports
 #4.) check that packages installed
 RUN Rscript -e "library('ggplot2'); library('gridExtra'); library('ggsignif'); library('ggrepel'); "
 
-#5.) Cleanup
-RUN	apt-get clean && \
+#5) Cleanup
+RUN	mv /usr/share/texmf/fonts /fonts && \
+	apt-get clean && \
 	find / -name *python* | xargs rm -rf && \
 	rm -rf /tmp/* && \
 	rm -rf /usr/share/* && \
 	rm -rf /var/cache/* && \
 	rm -rf /var/lib/apt/lists/* && \
-	rm -rf /var/log/*
+	rm -rf /var/log/* && \
+	mkdir /usr/share/texmf/ && \
+	mv /fonts /usr/share/texmf/fonts
