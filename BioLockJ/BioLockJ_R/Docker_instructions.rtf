@@ -8,8 +8,9 @@
 
 \f0\b\fs48 \cf0 Steps to analyze and reproduce figures in manuscript using BioLockJ\
 --Docker version\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f1\b0\fs24 \
+\f1\b0\fs24 \cf0 \
 
 \f0\b\fs36 1. Ensure that Docker Desktop and BioLockJ (v1.3.13 or newer) are on local system\
 
@@ -17,27 +18,34 @@
 \fs36  
 \f1\b0\fs24 https://biolockj-dev-team.github.io/BioLockJ/Getting-Started/
 \f0\b\fs36 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 Docker Desktop -
+\fs24 \cf0 Docker Desktop -
 \fs36  
 \f1\b0\fs24 https://www.docker.com/products/docker-desktop\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \
+\f0\b\fs36 \cf0 \
 2. Download RYGB_IntegratedAnalysis directory\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f2\b0\fs24 git clone https://github.com/FarnazFouladi/RYGB_IntegratedAnalysis2020.git
+\f2\b0\fs24 \cf0 git clone https://github.com/FarnazFouladi/RYGB_IntegratedAnalysis2020.git
 \f1 \
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 3. Move to BioLockJ directory\
+\f0\b\fs36 \cf0 3. Move to BioLockJ directory\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f3\b0\fs24 cd your/path/to/RYGB_IntegratedAnalysis/2020/BioLockJ/BioLockJ_R
+\f3\b0\fs24 \cf0 cd your/path/to/RYGB_IntegratedAnalysis2020/BioLockJ/BioLockJ_R
 \f1 \
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 4. Build Docker images\
+\f0\b\fs36 \cf0 4. Build Docker images\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f3\b0\fs24 docker pull asorgen/comparestudies:v1\
+\f3\b0\fs24 \cf0 docker pull asorgen/comparestudies:v1\
 docker pull asorgen/r-vegan:v1\
 docker pull asorgen/nlme:v1\
 docker pull asorgen/siamcat:v1\
@@ -47,20 +55,24 @@ docker pull asorgen/complexheatmap:v1\
 docker pull asorgen/pdftools:v1
 \f1 \
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 5. Change directory path in config file (RYGB_IntegratedAnalysis_docker.properties)\
+\f0\b\fs36 \cf0 5. Change directory path in config file (RYGB_IntegratedAnalysis_docker.properties)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f3\b0\fs24 \
+\f3\b0\fs24 \cf0 \
 ################ Change working directory #################################\
-DIR= our/path/to/RYGB_IntegratedAnalysis/2020/BioLockJ/BioLockJ_R\
+DIR= your/path/to/RYGB_IntegratedAnalysis2020\
 ###########################################################################
 \f0\b\fs36 \
 \
 5. Run BioLockJ pipeline\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f1\b0\fs24 \
+\f1\b0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f3 biolockj -d RYGB_IntegreatedAnalysis_docker.properties
+\f3 \cf0 biolockj -d RYGB_IntegreatedAnalysis_docker.properties
 \f1 \
 \
 }
