@@ -10,25 +10,34 @@
 library(ComplexHeatmap)
 library(stringr)
 
-pipeRoot = dirname(dirname(getwd()))
-
-output = file.path(dirname(getwd()),"output/")
-# output<-"./output/"
-taxa<-"Genus"
+pipeRoot <- dirname(dirname(getwd()))
 moduleDir <- dirname(getwd())
-funcScript <- paste0(moduleDir,"/resources/functions.R")
+outputDir <- file.path(moduleDir,"output")
+resourceDir <- file.path(moduleDir, "resources")
+funcScript <- file.path(resourceDir, "functions.R")
 source(funcScript)
-# source("./Rcode/RYGB_IntegratedAnalysis/functions.R")
+taxa <- "Genus"
 studies<-c("BS-1M","BS-6M","Assal-3M","Assal-1Y","Assal-2Y","Ilhan-6M","Ilhan-1Y","Afshar-Post")
 
-myT.BS<-read.table(paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "BSDADA"),"/output/MixedLinearModels/",taxa,"_BS_MixedLinearModelResults.txt"),sep="\t",header = TRUE,row.names = 1)
-# myT.BS<-read.table(paste0(output,"MixedLinearModels/",taxa,"_BS_MixedLinearModelResults.txt"),sep="\t",header = TRUE,row.names = 1)
-myT.Assal<-read.table(paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "AssalDADA"),"/output/MixedLinearModels/",taxa,"_Assal_MixedLinearModelResults.txt"),sep="\t",header = TRUE,row.names = 1)
-# myT.Assal<-read.table(paste0(output,"MixedLinearModels/",taxa,"_Assal_MixedLinearModelResults.txt"),sep="\t",header = TRUE,row.names = 1)
-myT.Ilhan<-read.table(paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "IlhanDADA"),"/output/MixedLinearModels/",taxa,"_Ilhan_MixedLinearModelResults.txt"),sep="\t",header = TRUE,row.names = 1)
-# myT.Ilhan<-read.table(paste0(output,"MixedLinearModels/",taxa,"_Ilhan_MixedLinearModelResults.txt"),sep="\t",header = TRUE,row.names = 1)
-myT.Afshar<-read.table(paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "AfsharDADA"),"/output/MixedLinearModels/",taxa,"_Afshar_MixedLinearModelResults.txt"),sep="\t",header = TRUE,row.names = 1)
-# myT.Afshar<-read.table(paste0(output,"MixedLinearModels/",taxa,"_Afshar_MixedLinearModelResults.txt"),sep="\t",header = TRUE,row.names = 1)
+inDir = file.path(file.path(dir(pipeRoot, full.names = TRUE, pattern="BSDADA"),"output"),"MixedLinearModels")
+inFile = paste0(taxa, "_BS_MixedLinearModelResults.txt")
+message("Reading file: ", file.path(inDir, inFile))
+myT.BS <- read.table(file.path(inDir, inFile), sep="\t",header = TRUE,row.names = 1)
+
+inDir = file.path(file.path(dir(pipeRoot, full.names = TRUE, pattern="AssalDADA"),"output"),"MixedLinearModels")
+inFile = paste0(taxa, "_Assal_MixedLinearModelResults.txt")
+message("Reading file: ", file.path(inDir, inFile))
+myT.Assal <- read.table(file.path(inDir, inFile), sep="\t",header = TRUE,row.names = 1)
+
+inDir = file.path(file.path(dir(pipeRoot, full.names = TRUE, pattern="IlhanDADA"),"output"),"MixedLinearModels")
+inFile = paste0(taxa, "_Ilhan_MixedLinearModelResults.txt")
+message("Reading file: ", file.path(inDir, inFile))
+myT.Ilhan <- read.table(file.path(inDir, inFile), sep="\t",header = TRUE,row.names = 1)
+
+inDir = file.path(file.path(dir(pipeRoot, full.names = TRUE, pattern="AfsharDADA"),"output"),"MixedLinearModels")
+inFile = paste0(taxa, "_Afshar_MixedLinearModelResults.txt")
+message("Reading file: ", file.path(inDir, inFile))
+myT.Afshar <- read.table(file.path(inDir, inFile), sep="\t",header = TRUE,row.names = 1)
 
 myT.BS$logp_1M<-getlog10p(myT.BS$p1M,myT.BS$s1M)
 myT.BS$logp_6M<-getlog10p(myT.BS$p6M,myT.BS$s6M)
@@ -67,7 +76,7 @@ ha <- HeatmapAnnotation(
   Study = studies, col = col
 )
 
-pdf(paste0(output,taxa,"_HeatmapAndCluster.pdf"),height = 8)
+pdf(file.path(outputDir, paste0(taxa,"_HeatmapAndCluster.pdf")),height = 8)
 Heatmap(df,top_annotation = ha,row_names_gp = gpar(fontsize = 6),heatmap_height = unit(20, "cm"),
         name = "log10 p-value")
 
