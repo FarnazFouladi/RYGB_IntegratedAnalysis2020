@@ -1,10 +1,14 @@
 ---
 title: "BioLockJ Reproduced Figures"
 author: "Alicia Sorgen"
-output: html_document
+output:
+  html_document:
+    toc: true
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
+library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -17,19 +21,19 @@ library(stringr)
 pipeRoot = dirname(dirname(getwd()))
 moduleDir = dirname(getwd())
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_PCO.png")
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PCO"),"/output/Genus_PCO.png")
 output <- paste0(moduleDir,"/resources/Genus_PCO.png")
 file.copy(from = input, to = output)
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_mainFigure1cd.png")
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudies16S"),"/output/Genus_mainFigure1cd.png")
 output <- paste0(moduleDir,"/resources/Genus_mainFigure1cd.png")
 file.copy(from = input, to = output)
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_coefficientsFromScatterPlots.png")
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudies16S"),"/output/Genus_coefficientsFromScatterPlots.png")
 output <- paste0(moduleDir,"/resources/Genus_coefficientsFromScatterPlots.png")
 file.copy(from = input, to = output)
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_BoxPlotCorrelations.png")
+input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudies16S"),"/output/Genus_BoxPlotCorrelations.png")
 output <- paste0(moduleDir,"/resources/Genus_BoxPlotCorrelations.png")
 file.copy(from = input, to = output)
 
@@ -100,77 +104,76 @@ file.copy(from = input, to = output)
 
 ## Original Supplemental Figure 1
 
-<img src="SuppFig1.png" alt="a pre-existing plot or image">
 
-BioLockJ Reproduced Figures
-<img src="Diversity.png" alt="a pre-existing plot or image">
+```{r out.width=400, out.height=400}
+left = "SuppFig1.png"
+right = "Diversity.png"
 
+include_graphics(c(left, right))
+```
 
-
+Left (original): ` `r left` `                           
+Right(reproduction): ` `r right` ` 
 
 ## Original Supplemental Figure 2
 
-<img src="SuppFig2.png" alt="a pre-existing plot or image">
+Not shown.  Multi-page supplement.
 
-BioLockJ Reproduced Figures
-
-<img src="Genus_scatterPlots.png" alt="a pre-existing plot or image">
-
-
+Files are `SuppFig2.png` (original) and `Genus_scatterPlots.png` (reproduction).
 
 
 ## Original Supplemental Figure 3
 
-<img src="SuppFig3.png" alt="a pre-existing plot or image">
+Not shown.  Multi-page supplement.
 
-BioLockJ Reproduced Figures
-
-<img src="Seq_scatterPlots.png" alt="a pre-existing plot or image">
-
-
+Files are `SuppFig3.png` (original) and `Seq_scatterPlots.png` (reproduction).
 
 
 ## Original Supplemental Figure 4
 
-<img src="SuppFig4.png" alt="a pre-existing plot or image">
+```{r out.width=400, out.height=400}
+left = "SuppFig4.png"
+right = "SV_BS_Assal.png"
 
-BioLockJ Reproduced Figures
+include_graphics(c(left, right))
+```
 
-<img src="SV_BS_Assal.png" alt="a pre-existing plot or image">
-
-
+Left (original): ` `r left` `                          
+Right(reproduction): ` `r right` ` 
 
 ## Original Supplemental Figure 5
 
-<img src="SuppFig5.png" alt="a pre-existing plot or image">
+Not shown.  Multi-page supplement.
 
-BioLockJ Reproduced Figures
-
-<img src="Species_scatterPlots_MetagenomicsBSAndPalleja.png" alt="a pre-existing plot or image">
-
-
+Files are `SuppFig5.png` (original) and `Species_scatterPlots_MetagenomicsBSAndPalleja.png` (reproduction).
 
 
 ## Original Supplemental Figure 6
 
-<img src="SuppFig6.png" alt="a pre-existing plot or image">
+Not shown.  Multi-page supplement.
 
-BioLockJ Reproduced Figures
-
-<img src="Pathway_scatterPlots_MetagenomicsBSAndPalleja.png" alt="a pre-existing plot or image">
-
-
+Files are `SuppFig6.png` (original) and `Pathway_scatterPlots_MetagenomicsBSAndPalleja.png` (reproduction).
 
 
 ## Original Supplemental Figure 7
 
-Main Figure 7
-<img src="SuppFig7.png" alt="a pre-existing plot or image">
+```{r out.height=400}
+top = "SuppFig7.png"
+lowLeft = "performance_heatmap_randomForest.png"
+lowRigth = "loso_performance_randomForest.png"
 
-BioLockJ Reproduced Figures
+include_graphics(top)
+```
+```{r out.width=450}
+include_graphics(c(lowLeft, lowRigth))
+```
 
-Figure 7A
-<img src="performance_heatmap_randomForest.png" alt="a pre-existing plot or image">
+Top left and right (original): ` `r top` `                           
+Lower left (reproduction): ` `r lowLeft` `                           
+Lower tight (reproduction): ` `r lowRigth` ` 
 
-Figure 7B
-<img src="loso_performance_randomForest.png" alt="a pre-existing plot or image">
+
+```{r}
+sessionInfo()
+```
+
