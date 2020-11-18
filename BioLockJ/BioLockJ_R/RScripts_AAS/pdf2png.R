@@ -46,14 +46,6 @@ png::writePNG(bitmap, paste0(output,"Diversity.png"))
 
 
 
-#### Heatmap ####
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "Heatmap"),"/output/")
-
-bitmap <- pdf_render_page(paste0(input,"Genus_HeatmapAndCluster.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"Genus_HeatmapAndCluster.png"))
-
-
-
 #### CompareStudiesMetagenomics ####
 input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudiesMetagenomics"),"/output/")
 

@@ -49,9 +49,9 @@ input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Seq_s
 output <- paste0(moduleDir,"/resources/Seq_scatterPlots.png")
 file.copy(from = input, to = output)
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_HeatmapAndCluster.png")
-output <- paste0(moduleDir,"/resources/Genus_HeatmapAndCluster.png")
-file.copy(from = input, to = output)
+# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_HeatmapAndCluster.png")
+# output <- paste0(moduleDir,"/resources/Genus_HeatmapAndCluster.png")
+# file.copy(from = input, to = output)
 
 input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Species_scatterPlots_MetagenomicsBSAndPalleja.png")
 output <- paste0(moduleDir,"/resources/Species_scatterPlots_MetagenomicsBSAndPalleja.png")
@@ -97,18 +97,6 @@ input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Oport
 output <- paste0(moduleDir,"/resources/OportunisticPathogens.png")
 file.copy(from = input, to = output)
 ```
-
-## Original Figure 2
-
-Main Figure 1
-<img src="MainFigure2.png" alt="a pre-existing plot or image">
-
-BioLockJ Reproduced Figures
-
-Figure 2
-<img src="Genus_HeatmapAndCluster.png" alt="a pre-existing plot or image">
-
-
 
 
 ## Original Figure 3
