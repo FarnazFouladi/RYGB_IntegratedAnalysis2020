@@ -65,9 +65,9 @@ png::writePNG(bitmap, paste0(output,"Pathway_coefficientsFromScatterPlots_Metage
 
 
 #### FigPerformrandomForest ####
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "FigPerformrandomForest"),"/output/")
-bitmap <- pdf_render_page(paste0(input,"performance_heatmap_randomForest.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"performance_heatmap_randomForest.png"))
+#input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "FigPerformrandomForest"),"/output/")
+#bitmap <- pdf_render_page(paste0(input,"performance_heatmap_randomForest.pdf"), dpi = 100)
+#png::writePNG(bitmap, paste0(output,"performance_heatmap_randomForest.png"))
 
-bitmap <- pdf_render_page(paste0(input,"loso_performance_randomForest.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"loso_performance_randomForest.png"))
+#bitmap <- pdf_render_page(paste0(input,"loso_performance_randomForest.pdf"), dpi = 100)
+#png::writePNG(bitmap, paste0(output,"loso_performance_randomForest.png"))

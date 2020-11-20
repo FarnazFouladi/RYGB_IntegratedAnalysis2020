@@ -31,7 +31,7 @@ studyNames<-c("BS-1 month","BS-6 months","Assal-3 months","Assal-1 year","Assal-
 #Compare BS-1 month versus Assal-3 months
 s=1
 s1=3
-path<-paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudiesSV"),"/input/")
+path<-file.path(pipeRoot,dir(pipeRoot, pattern="CompareStudiesSV"),"input")
 # path<-paste0(output,"MixedLinearModels/")
 df<-compareStudies(path,taxa,strsplit(studies[s],"-")[[1]][1],strsplit(studies[s1],"-")[[1]][1],strsplit(studies[s],"-")[[1]][2],strsplit(studies[s1],"-")[[1]][2])
 
