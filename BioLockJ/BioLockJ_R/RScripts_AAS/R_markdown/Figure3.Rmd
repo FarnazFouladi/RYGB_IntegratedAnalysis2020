@@ -1,5 +1,5 @@
 ---
-title: "Figure 1"
+title: "Figure 3"
 author: "Alicia Sorgen and Ivory Blakley"
 output:
   html_document:
@@ -14,13 +14,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This is a side-by-side comparison between figures as they appear in the published work, and the corresponding figures that were re-generated on ` `r date()` `.
 
-## Figure 1
-
+## Figure 3
 
 ```{r}
-fig1 = file.path(getwd(), "MainFigure1.png")
+fig3 = file.path(getwd(), "MainFigure3.png")
 origPanels = getwd()
-include_graphics(fig1)
+include_graphics(fig3)
 ```
 
 Now we'll compare individual panels to the output we just generated in this pipeline.  
@@ -38,58 +37,56 @@ showPipelineFile <- function(filePath){
 The re-produced images are taken from modules under this folder:               
 ``r gsub("mnt/efs/pipelines/", "<BLJ_PROJ folder>", pipeRoot)``
 
-## Side-by-side by panel
 
-### Panel A and B
+### Panels A and B
 
-```{r out.width=400, out.height=850}
-fileName="Genus_PCO.pdf"
-left = file.path(origPanels, fileName)
+```{r out.width=700, out.height=350}
+upper = file.path(origPanels, "Pathway_scatterPlotsMetagenumicsPaper.pdf")
 
-PCOmodule = dir(pipeRoot, pattern="PCO", full.names=TRUE)
-pcoOutDir = file.path(PCOmodule, "output")
-right = file.path(pcoOutDir, fileName)
+compMeta = file.path(dir(pipeRoot, full.names=TRUE, pattern="_CompareStudiesMetagenomics"),"output")
+lower = file.path(compMeta, "Species_mainFigure3ab.pdf")
 
-include_graphics(c(left, right))
+include_graphics(c(upper, lower))
 ```
 
-The left image comes from the publication.  The right image is the pipeline result file:            
-``r showPipelineFile(right)``
+The left image comes from the publication.  The lower image is the pipeline result file:            
+``r showPipelineFile(lower)``
 
-
-### Panel C and D
-
-```{r out.width=400, out.height=750}
-left = file.path(origPanels, "Genus_scatterPlotsPaper.pdf")
-
-comp16Dir = file.path(dir(pipeRoot, pattern="CompareStudies16S", full.names=TRUE), "output")
-right = file.path(comp16Dir, "Genus_mainFigure1cd.pdf")
-
-include_graphics(c(left, right))
-```
-
-The left image comes from the publication.  The right image is the pipeline result file:            
-``r showPipelineFile(right)``
-
-### Panel E
+### Panel C
 
 ```{r out.width=400, out.height=450}
-fileName="Genus_coefficientsFromScatterPlots.pdf"
+fileName = "Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.pdf"
 left = file.path(origPanels, fileName)
-right = file.path(comp16Dir, fileName)
+right = file.path(compMeta, fileName)
 
 include_graphics(c(left, right))
 ```
 
 The left image comes from the publication.  The right image is the pipeline result file:            
 ``r showPipelineFile(right)``
+
+### Panels D and E
+
+Upper image is large, scroll down.
+
+```{r out.width=700, out.height=350}
+upper = file.path(origPanels, "Pathway_scatterPlotsMetagenumicsPaper.pdf")
+
+compPath = file.path(dir(pipeRoot, full.names=TRUE, pattern="CompareStudiesPathways"),"output")
+lower = file.path(compPath, "Pathway_mainFigure3de.pdf")
+
+include_graphics(c(upper, lower))
+```
+
+The left image comes from the publication.  The lower image is the pipeline result file:            
+``r showPipelineFile(lower)``
 
 ### Panel F
 
-```{r out.width=400, out.height=450}
-fileName="Genus_BoxPlotCorrelations.pdf"
+```{r out.width=400, out.height=475}
+fileName = "Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.pdf"
 left = file.path(origPanels, fileName)
-right = file.path(comp16Dir, fileName)
+right = file.path(compPath, fileName)
 
 include_graphics(c(left, right))
 ```
@@ -100,4 +97,3 @@ The left image comes from the publication.  The right image is the pipeline resu
 ```{r}
 sessionInfo()
 ```
-

@@ -52,13 +52,6 @@ input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudiesMetagenomi
 bitmap <- pdf_render_page(paste0(input,"Species_scatterPlots_MetagenomicsBSAndPalleja.pdf"), dpi = 100)
 png::writePNG(bitmap, paste0(output,"Species_scatterPlots_MetagenomicsBSAndPalleja.png"))
 
-bitmap <- pdf_render_page(paste0(input,"Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png"))
-
-bitmap <- pdf_render_page(paste0(input,"Species_mainFigure3ab.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"Species_mainFigure3ab.png"))
-
-
 
 #### CompareStudiesPathways ####
 input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "CompareStudiesPathways"),"/output/")
@@ -68,9 +61,6 @@ png::writePNG(bitmap, paste0(output,"Pathway_scatterPlots_MetagenomicsBSAndPalle
 
 bitmap <- pdf_render_page(paste0(input,"Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.pdf"), dpi = 100)
 png::writePNG(bitmap, paste0(output,"Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png"))
-
-bitmap <- pdf_render_page(paste0(input,"Pathway_mainFigure3de.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"Pathway_mainFigure3de.png"))
 
 
 
