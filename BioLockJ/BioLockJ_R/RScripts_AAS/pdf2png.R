@@ -84,18 +84,6 @@ png::writePNG(bitmap, paste0(output,"loso_performance_randomForest.png"))
 
 
 
-
-#### FigPerformlasso ####
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "FigPerformlasso"),"/output/")
-
-bitmap <- pdf_render_page(paste0(input,"performance_heatmap_lasso.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"performance_heatmap_lasso.png"))
-
-bitmap <- pdf_render_page(paste0(input,"loso_performance_lasso.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"loso_performance_lasso.png"))
-
-
-
 #### OppPathogens ####
 input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "OppPathogens"),"/output/")
 

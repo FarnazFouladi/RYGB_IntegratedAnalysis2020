@@ -120,23 +120,6 @@ Figure 3F
 
 
 
-
-## Original Figure 4
-
-Main Figure 4
-<img src="MainFigure4.png" alt="a pre-existing plot or image">
-
-BioLockJ Reproduced Figures
-
-Figure 4A
-<img src="performance_heatmap_lasso.png" alt="a pre-existing plot or image">
-
-Figure 4B
-<img src="loso_performance_lasso.png" alt="a pre-existing plot or image">
-
-
-
-
 ## Original Figure 5
 
 Main Figure 5
