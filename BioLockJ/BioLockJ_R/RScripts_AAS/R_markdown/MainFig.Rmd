@@ -17,46 +17,6 @@ library(stringr)
 pipeRoot = dirname(dirname(getwd()))
 moduleDir = dirname(getwd())
 
-# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_PCO.png")
-# output <- paste0(moduleDir,"/resources/Genus_PCO.png")
-# file.copy(from = input, to = output)
-
-# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_mainFigure1cd.png")
-# output <- paste0(moduleDir,"/resources/Genus_mainFigure1cd.png")
-# file.copy(from = input, to = output)
-
-# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_coefficientsFromScatterPlots.png")
-# output <- paste0(moduleDir,"/resources/Genus_coefficientsFromScatterPlots.png")
-# file.copy(from = input, to = output)
-
-# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_BoxPlotCorrelations.png")
-# output <- paste0(moduleDir,"/resources/Genus_BoxPlotCorrelations.png")
-# file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Seq_scatterPlots.png")
-output <- paste0(moduleDir,"/resources/Seq_scatterPlots.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/SV_BS_Assal.png")
-output <- paste0(moduleDir,"/resources/SV_BS_Assal.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Diversity.png")
-output <- paste0(moduleDir,"/resources/Diversity.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Seq_scatterPlots.png")
-output <- paste0(moduleDir,"/resources/Seq_scatterPlots.png")
-file.copy(from = input, to = output)
-
-# input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Genus_HeatmapAndCluster.png")
-# output <- paste0(moduleDir,"/resources/Genus_HeatmapAndCluster.png")
-# file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Species_scatterPlots_MetagenomicsBSAndPalleja.png")
-output <- paste0(moduleDir,"/resources/Species_scatterPlots_MetagenomicsBSAndPalleja.png")
-file.copy(from = input, to = output)
-
 input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Species_mainFigure3ab.png")
 output <- paste0(moduleDir,"/resources/Species_mainFigure3ab.png")
 file.copy(from = input, to = output)
@@ -65,36 +25,12 @@ input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Speci
 output <- paste0(moduleDir,"/resources/Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
 file.copy(from = input, to = output)
 
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Pathway_scatterPlots_MetagenomicsBSAndPalleja.png")
-output <- paste0(moduleDir,"/resources/Pathway_scatterPlots_MetagenomicsBSAndPalleja.png")
-file.copy(from = input, to = output)
-
 input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Pathway_mainFigure3de.png")
 output <- paste0(moduleDir,"/resources/Pathway_mainFigure3de.png")
 file.copy(from = input, to = output)
 
 input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
 output <- paste0(moduleDir,"/resources/Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/performance_heatmap_randomForest.png")
-output <- paste0(moduleDir,"/resources/performance_heatmap_randomForest.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/loso_performance_randomForest.png")
-output <- paste0(moduleDir,"/resources/loso_performance_randomForest.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/performance_heatmap_lasso.png")
-output <- paste0(moduleDir,"/resources/performance_heatmap_lasso.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/loso_performance_lasso.png")
-output <- paste0(moduleDir,"/resources/loso_performance_lasso.png")
-file.copy(from = input, to = output)
-
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "PDF2png"),"/output/OportunisticPathogens.png")
-output <- paste0(moduleDir,"/resources/OportunisticPathogens.png")
 file.copy(from = input, to = output)
 ```
 
@@ -117,16 +53,4 @@ Figure 3D and 3E
 
 Figure 3F
 <img src="Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.png" alt="a pre-existing plot or image">
-
-
-
-## Original Figure 5
-
-Main Figure 5
-<img src="MainFigure5.png" alt="a pre-existing plot or image">
-
-BioLockJ Reproduced Figures
-
-Figure 5
-<img src="OportunisticPathogens.png" alt="a pre-existing plot or image">
 

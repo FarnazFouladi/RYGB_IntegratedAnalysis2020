@@ -1,0 +1,50 @@
+---
+title: "Figure 5"
+author: "Alicia Sorgen and Ivory Blakley"
+output:
+  html_document:
+    toc: true
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is a side-by-side comparison between figures as they appear in the published work, and the corresponding figures that were re-generated on ` `r date()` `.
+
+## Figure 5
+
+Now we'll compare individual panels to the output we just generated in this pipeline.  
+
+The old and new may not be bit-for-bit identical.  There may some random seed that is used in a training step, or a difference in the font libraries available, graphics paramaters like resolution or image size may be different, the publication may have some manually curated labels that the script-generated image does not.  There are many acceptable reasons why a reproduction of a figure may not be identical to the original; but we expect that the core conclusion from the original will hold for the reproduction.
+
+```{r}
+pipeRoot <- dirname(dirname(getwd()))
+# in docker, the $BLJ_PROJ folder is mapped to 'mnt/efs/pipelines'
+showPipelineFile <- function(filePath){
+    return(gsub(paste0(pipeRoot,"/"), "", filePath))
+}
+```
+
+The re-produced images are taken from modules under this folder:               
+``r gsub("mnt/efs/pipelines/", "<BLJ_PROJ folder>", pipeRoot)``
+
+### All panels
+
+```{r out.width=750, out.height=410}
+fileName="OportunisticPathogens.pdf"
+
+dir = file.path(dir(pipeRoot, full.names=TRUE, pattern="OppPathogens"), "output")
+lower = file.path(dir, fileName)
+
+include_graphics(c(fileName, lower))
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+``r showPipelineFile(lower)``
+
+```{r}
+sessionInfo()
+```

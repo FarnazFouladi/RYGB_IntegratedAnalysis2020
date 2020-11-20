@@ -81,12 +81,3 @@ png::writePNG(bitmap, paste0(output,"performance_heatmap_randomForest.png"))
 
 bitmap <- pdf_render_page(paste0(input,"loso_performance_randomForest.pdf"), dpi = 100)
 png::writePNG(bitmap, paste0(output,"loso_performance_randomForest.png"))
-
-
-
-#### OppPathogens ####
-input <- paste0(pipeRoot,"/",str_subset(dir(pipeRoot), "OppPathogens"),"/output/")
-
-bitmap <- pdf_render_page(paste0(input,"OportunisticPathogens.pdf"), dpi = 100)
-png::writePNG(bitmap, paste0(output,"OportunisticPathogens.png"))
-
