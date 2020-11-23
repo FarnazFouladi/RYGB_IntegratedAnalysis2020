@@ -1,9 +1,9 @@
 ---
 title: "Figure 2"
 output:
-  html_document:
+  pdf_document:
     toc: true
-    code_folding: hide
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -24,9 +24,12 @@ showPipelineFile <- function(filePath){
 The re-produced images are taken from modules under this folder:               
 ``r gsub("mnt/efs/pipelines/", "<BLJ_PROJ folder>", pipeRoot)``
 
-## Figure2 - Heatmap
+## Figure2 
 
-```{r out.width=400, out.height=500}
+\newpage
+### Heatmap
+
+```{r out.width="50%"}
 fileName <- "Genus_HeatmapAndCluster.pdf"
 dir <- file.path(dir(pipeRoot, full.names = TRUE, pattern = "Heatmap"), "output")
 newFile <- file.path(dir, fileName) 

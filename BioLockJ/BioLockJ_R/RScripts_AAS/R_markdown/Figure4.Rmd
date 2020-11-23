@@ -1,10 +1,10 @@
 ---
-title: "Figure 1"
+title: "Figure 4"
 author: "Alicia Sorgen and Ivory Blakley"
 output:
-  html_document:
+  pdf_document:
     toc: true
-    code_folding: hide
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -16,7 +16,7 @@ This is a side-by-side comparison between figures as they appear in the publishe
 
 ## Figure 4
 
-```{r}
+```{r out.width="100%"}
 fig4 = file.path(getwd(), "MainFigure4.png")
 origPanels = getwd()
 include_graphics(fig4)
@@ -39,32 +39,37 @@ origPanels = getwd()
 The re-produced images are taken from modules under this folder:               
 ``r gsub("mnt/efs/pipelines/", "<BLJ_PROJ folder>", pipeRoot)``
 
+\newpage
 ### Panel A 
 
-```{r out.width=675, out.height=475}
+```{r out.height="30%"}
 fileName="performance_heatmap_lasso.png"
-left = file.path(origPanels, fileName)
-right = file.path(dir, gsub(".png", ".pdf", fileName) )
+upper = file.path(origPanels, fileName)
+lower = file.path(dir, gsub(".png", ".pdf", fileName) )
 
-include_graphics(c(left, right))
+include_graphics(upper)
+include_graphics(lower)
 ```
 
-The left image comes from the publication.  The right image is the pipeline result file:            
-``r showPipelineFile(right)``
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+``r showPipelineFile(lower)``
 
+\newpage
 ### Panel B
 
-```{r out.width=550, out.height=360}
+```{r out.height="30%"}
 fileName="loso_performance_lasso.png"
-left = file.path(origPanels, fileName)
-right = file.path(dir, gsub(".png", ".pdf", fileName))
+upper = file.path(origPanels, fileName)
+lower = file.path(dir, gsub(".png", ".pdf", fileName))
 
-include_graphics(c(left, right), auto_pdf = TRUE)
+include_graphics(upper)
+include_graphics(lower)
 ```
 
-The left image comes from the publication.  The right image is the pipeline result file:            
-``r showPipelineFile(right)``
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+``r showPipelineFile(lower)``
 
+\newpage
 ```{r}
 sessionInfo()
 ```

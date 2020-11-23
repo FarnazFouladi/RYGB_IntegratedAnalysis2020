@@ -2,9 +2,9 @@
 title: "Figure 1"
 author: "Alicia Sorgen and Ivory Blakley"
 output:
-  html_document:
+  pdf_document:
     toc: true
-    code_folding: hide
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +17,7 @@ This is a side-by-side comparison between figures as they appear in the publishe
 ## Figure 1
 
 
-```{r}
+```{r out.width="100%"}
 fig1 = file.path(getwd(), "MainFigure1.png")
 origPanels = getwd()
 include_graphics(fig1)
@@ -40,9 +40,10 @@ The re-produced images are taken from modules under this folder:
 
 ## Side-by-side by panel
 
+\newpage
 ### Panel A and B
 
-```{r out.width=400, out.height=850}
+```{r out.width="50%"}
 fileName="Genus_PCO.pdf"
 left = file.path(origPanels, fileName)
 
@@ -56,10 +57,10 @@ include_graphics(c(left, right))
 The left image comes from the publication.  The right image is the pipeline result file:            
 ``r showPipelineFile(right)``
 
-
+\newpage
 ### Panel C and D
 
-```{r out.width=400, out.height=750}
+```{r out.width="50%"}
 left = file.path(origPanels, "Genus_scatterPlotsPaper.pdf")
 
 comp16Dir = file.path(dir(pipeRoot, pattern="CompareStudies16S", full.names=TRUE), "output")
@@ -71,9 +72,10 @@ include_graphics(c(left, right))
 The left image comes from the publication.  The right image is the pipeline result file:            
 ``r showPipelineFile(right)``
 
+\newpage
 ### Panel E
 
-```{r out.width=400, out.height=450}
+```{r out.width="50%"}
 fileName="Genus_coefficientsFromScatterPlots.pdf"
 left = file.path(origPanels, fileName)
 right = file.path(comp16Dir, fileName)
@@ -86,7 +88,7 @@ The left image comes from the publication.  The right image is the pipeline resu
 
 ### Panel F
 
-```{r out.width=400, out.height=450}
+```{r out.width="50%"}
 fileName="Genus_BoxPlotCorrelations.pdf"
 left = file.path(origPanels, fileName)
 right = file.path(comp16Dir, fileName)

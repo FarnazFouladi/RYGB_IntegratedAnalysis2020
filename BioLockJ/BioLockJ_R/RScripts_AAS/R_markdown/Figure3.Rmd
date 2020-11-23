@@ -2,9 +2,9 @@
 title: "Figure 3"
 author: "Alicia Sorgen and Ivory Blakley"
 output:
-  html_document:
+  pdf_document:
     toc: true
-    code_folding: hide
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -16,7 +16,7 @@ This is a side-by-side comparison between figures as they appear in the publishe
 
 ## Figure 3
 
-```{r}
+```{r out.width="100%"}
 fig3 = file.path(getwd(), "MainFigure3.png")
 origPanels = getwd()
 include_graphics(fig3)
@@ -37,24 +37,26 @@ showPipelineFile <- function(filePath){
 The re-produced images are taken from modules under this folder:               
 ``r gsub("mnt/efs/pipelines/", "<BLJ_PROJ folder>", pipeRoot)``
 
-
+\newpage
 ### Panels A and B
 
-```{r out.width=700, out.height=350}
+```{r out.width="80%"}
 upper = file.path(origPanels, "Pathway_scatterPlotsMetagenumicsPaper.pdf")
 
 compMeta = file.path(dir(pipeRoot, full.names=TRUE, pattern="_CompareStudiesMetagenomics"),"output")
 lower = file.path(compMeta, "Species_mainFigure3ab.pdf")
 
-include_graphics(c(upper, lower))
+include_graphics(upper)
+include_graphics(lower)
 ```
 
 The left image comes from the publication.  The lower image is the pipeline result file:            
 ``r showPipelineFile(lower)``
 
+\newpage
 ### Panel C
 
-```{r out.width=400, out.height=450}
+```{r out.width="50%"}
 fileName = "Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.pdf"
 left = file.path(origPanels, fileName)
 right = file.path(compMeta, fileName)
@@ -65,25 +67,28 @@ include_graphics(c(left, right))
 The left image comes from the publication.  The right image is the pipeline result file:            
 ``r showPipelineFile(right)``
 
+\newpage
 ### Panels D and E
 
 Upper image is large, scroll down.
 
-```{r out.width=700, out.height=350}
+```{r out.width="80%"}
 upper = file.path(origPanels, "Pathway_scatterPlotsMetagenumicsPaper.pdf")
 
 compPath = file.path(dir(pipeRoot, full.names=TRUE, pattern="CompareStudiesPathways"),"output")
 lower = file.path(compPath, "Pathway_mainFigure3de.pdf")
 
-include_graphics(c(upper, lower))
+include_graphics(upper)
+include_graphics(lower)
 ```
 
 The left image comes from the publication.  The lower image is the pipeline result file:            
 ``r showPipelineFile(lower)``
 
+\newpage
 ### Panel F
 
-```{r out.width=400, out.height=475}
+```{r out.width="50%"}
 fileName = "Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.pdf"
 left = file.path(origPanels, fileName)
 right = file.path(compPath, fileName)
