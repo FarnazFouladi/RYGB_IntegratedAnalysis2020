@@ -1,0 +1,266 @@
+---
+title: "Review Figures"
+author: "Alicia Sorgen and Ivory Blakley"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+  html_document:
+    toc: true
+    toc_depth: 3
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Review Reproduced Figures
+
+This is a side-by-side comparison between figures as they appear in the published work, and the corresponding figures that were re-generated on:  ` `r date()` `.
+
+The old and new may not be bit-for-bit identical.  There may some random seed that is used in a training step, or a difference in the font libraries available, graphics paramaters like resolution or image size may be different, the publication may have some manually curated labels that the script-generated image does not.  There are many acceptable reasons why a reproduction of a figure may not be identical to the original; but we expect that the core conclusion from the original will hold for the reproduction.
+
+```{r}
+pipeRoot <- dirname(dirname(getwd()))
+showPipelineRoot <- function(){
+    # in docker, the $BLJ_PROJ folder is mapped to 'mnt/efs/pipelines', which is not useful
+    return(gsub("/mnt/efs/pipelines", "<BLJ_PROJ folder>", pipeRoot))
+}
+showPipelineFile <- function(filePath){
+    return(gsub(paste0(pipeRoot,"/"), "", filePath))
+}
+origPanels = getwd()
+```
+
+The re-produced images are taken from modules under this folder:               
+``r showPipelineRoot()``
+
+
+\newpage
+## Figure 1
+
+```{r Fig1, out.width="100%"}
+fig1 = file.path(getwd(), "MainFigure1.png")
+include_graphics(fig1)
+```
+
+\newpage
+### Panel A and B
+
+```{r out.width="50%"}
+fileName="Genus_PCO.pdf"
+left = file.path(origPanels, fileName)
+
+PCOmodule = dir(pipeRoot, pattern="PCO", full.names=TRUE)
+pcoOutDir = file.path(PCOmodule, "output")
+right = file.path(pcoOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel C and D
+
+```{r out.width="50%"}
+left = file.path(origPanels, "Genus_scatterPlotsPaper.pdf")
+
+comp16Dir = file.path(dir(pipeRoot, pattern="CompareStudies16S", full.names=TRUE), "output")
+right = file.path(comp16Dir, "Genus_mainFigure1cd.pdf")
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel E
+
+```{r out.width="50%"}
+fileName="Genus_coefficientsFromScatterPlots.pdf"
+left = file.path(origPanels, fileName)
+right = file.path(comp16Dir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+### Panel F
+
+```{r out.width="50%"}
+fileName="Genus_BoxPlotCorrelations.pdf"
+left = file.path(origPanels, fileName)
+right = file.path(comp16Dir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+
+\newpage
+## Figure2 
+
+### Heatmap
+
+```{r fig2, out.width="50%"}
+fileName <- "Genus_HeatmapAndCluster.pdf"
+dir <- file.path(dir(pipeRoot, full.names = TRUE, pattern = "Heatmap"), "output")
+newFile <- file.path(dir, fileName) 
+include_graphics(c(fileName, newFile))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(newFile)``
+
+
+\newpage
+## Figure 3
+
+```{r Fig3, out.width="100%"}
+fig3 = file.path(origPanels, "MainFigure3.png")
+include_graphics(fig3)
+```
+
+\newpage
+### Panels A and B
+
+```{r out.width="80%"}
+upper = file.path(origPanels, "Pathway_scatterPlotsMetagenumicsPaper.pdf")
+
+compMeta = file.path(dir(pipeRoot, full.names=TRUE, pattern="_CompareStudiesMetagenomics"),"output")
+lower = file.path(compMeta, "Species_mainFigure3ab.pdf")
+
+include_graphics(upper)
+include_graphics(lower)
+```
+
+The left image comes from the publication.  The lower image is the pipeline result file:            
+``r showPipelineFile(lower)``
+
+\newpage
+### Panel C
+
+```{r out.width="50%"}
+fileName = "Species_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.pdf"
+left = file.path(origPanels, fileName)
+right = file.path(compMeta, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panels D and E
+
+Upper image is large, scroll down.
+
+```{r out.width="80%"}
+upper = file.path(origPanels, "Pathway_scatterPlotsMetagenumicsPaper.pdf")
+
+compPath = file.path(dir(pipeRoot, full.names=TRUE, pattern="CompareStudiesPathways"),"output")
+lower = file.path(compPath, "Pathway_mainFigure3de.pdf")
+
+include_graphics(upper)
+include_graphics(lower)
+```
+
+The left image comes from the publication.  The lower image is the pipeline result file:            
+``r showPipelineFile(lower)``
+
+\newpage
+### Panel F
+
+```{r out.width="50%"}
+fileName = "Pathway_coefficientsFromScatterPlots_MetagenomicsBSAndPalleja.pdf"
+left = file.path(origPanels, fileName)
+right = file.path(compPath, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+
+\newpage
+## Figure 4
+
+```{r Fig4, out.width="100%"}
+fig4 = file.path(getwd(), "MainFigure4.png")
+include_graphics(fig4)
+```
+
+\newpage
+### Panel A 
+
+```{r out.height="30%"}
+fileName="performance_heatmap_lasso.png"
+upper = file.path(origPanels, fileName)
+perform = file.path(dir(pipeRoot, pattern="FigPerformlasso", full.names=TRUE), "output")
+lower = file.path(perform, gsub(".png", ".pdf", fileName) )
+
+include_graphics(upper)
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+``r showPipelineFile(lower)``
+
+\newpage
+### Panel B
+
+```{r out.height="30%"}
+fileName="loso_performance_lasso.png"
+upper = file.path(origPanels, fileName)
+lower = file.path(perform, gsub(".png", ".pdf", fileName))
+
+include_graphics(upper)
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+``r showPipelineFile(lower)``
+
+
+\newpage
+## Figure 5
+
+### All panels
+
+```{r}
+fileName="OportunisticPathogens.pdf"
+
+oppPath = file.path(dir(pipeRoot, full.names=TRUE, pattern="OppPathogens"), "output")
+lower = file.path(oppPath, fileName)
+```
+
+Publication
+
+```{r fig5original}
+include_graphics(fileName)
+```
+
+Reproduction
+
+```{r fig5Reproduced }
+include_graphics(lower)
+```
+
+The upper image comes from the publication.  The lower image is the pipeline result file:            
+` `r showPipelineFile(lower)` `
+
+\newpage
+```{r}
+sessionInfo()
+```
