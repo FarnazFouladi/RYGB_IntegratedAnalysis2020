@@ -50,4 +50,4 @@ To run the pipeline using **locally installed software**:
 `biolockj RYGB_IntegreatedAnalysis.config`
 
 To run the pipeline using **docker images**, add the -d argument:                                    
-`biolockj -d RYGB_IntegreatedAnalysis.config`
+`biolockj -d RYGB_IntegratedAnalysis.config`
