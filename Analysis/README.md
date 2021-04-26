@@ -40,6 +40,7 @@ Make sure all required R packages are installed
  * reshape2
  * pdp
  * SIAMCAT
+ * tinytex::install_tinytex()
 
 ## 4. Run BioLockJ pipeline
 
@@ -47,7 +48,9 @@ Move to the Analysis folder:
 `cd <path/to/RYGB_IntegratedAnalysis2020>/Analysis`
 
 To run the pipeline using **locally installed software**:                 
-`biolockj RYGB_IntegreatedAnalysis.config`
+`biolockj RYGB_IntegratedAnalysis.config`
 
 To run the pipeline using **docker images**, add the -d argument:                                    
 `biolockj -d RYGB_IntegratedAnalysis.config`
+
+Outputs will be stored in a directory at path/to/BioLockJ/pipelines.
